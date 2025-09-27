@@ -208,24 +208,7 @@ endmodule
 
 ---
 
-## 6. Synthesis Lab with Yosys
 
-```bash
-yosys
-read_liberty -lib /path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog /path/to/good_mux.v
-synth -top good_mux
-abc -liberty /path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
-```
-
-<div align="center">
-  <img src="https://github.com/Shaikhaseena16/RISC-V_VSDIAT/blob/main/week%201/Day1/1.png">
-  <img src="https://github.com/Shaikhaseena16/RISC-V_VSDIAT/blob/main/week%201/Day1/2.png">
-  <img src="https://github.com/Shaikhaseena16/RISC-V_VSDIAT/blob/main/week%201/Day1/gvim.png">
-</div>
-
----
 
 ## 7. Summary
 
