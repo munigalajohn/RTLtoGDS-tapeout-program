@@ -137,7 +137,7 @@ end
 endmodule
 ```
 
-![Lab 5 Output](https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/week%201/Day3/yosys-dff-const1.png)
+![Lab 5 Output](https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/week%201/Day3/yosys-asyncset.png)
 
 ---
 
