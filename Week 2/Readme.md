@@ -257,7 +257,7 @@ VSDBabySoC/
 
 ### Clock Behavior
 
-
+> *`CLK` shows stable clock periods with signal transitions matched to rising edges.*
 ---
 
 ### Data Flow Between Modules
