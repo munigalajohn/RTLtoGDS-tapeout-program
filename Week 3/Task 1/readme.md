@@ -42,31 +42,28 @@ yosys
 
 Inside the Yosys shell, run:
 ```yosys
-read_verilog /home/vivek/VSDBabySoC/src/module/vsdbabysoc.v
-read_verilog -I /home/vivek/VSDBabySoC/src/include/home/vivek/VSDBabySoC/src/module/rvmyth.v
-read_verilog -I /home/vivek/VSDBabySoC/src/include /home/vivek/VSDBabySoC/src/module/clk_gate.v
+read_verilog /home/john/Desktop/VSDBabySoC/src/module/vsdbabysoc.v
+read_verilog -I /home/john/Desktop/VSDBabySoC/src/include/home/john/Desktop/VSDBabySoC/src/module/rvmyth.v
+read_verilog -I /home/john/Desktop/VSDBabySoC/src/include /home/john/Desktop/VSDBabySoC/src/module/clk_gate.v
 
 ```
 <p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/yosys_read_v.png" 
+  <img src="https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/Week%203/Task%201/read_verilog.png" 
        alt="Simulation Block Diagram" width="600"/>
 </p>
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/read_verilog.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
+
 
 ---
 
 ### **Step 2: Load the Liberty Files for Synthesis**
 Inside the same Yosys shell, run:
 ```yosys
-read_liberty -lib /home/vivek/VSDBabySoC/src/lib/avsddac.lib 
-read_liberty -lib /home/vivek/VSDBabySoC/src/lib/avsdpll.lib 
-read_liberty -lib /home/vivek/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -lib /home/john/Desktop/VSDBabySoC/src/lib/avsddac.lib 
+read_liberty -lib /home/john/Desktop/VSDBabySoC/src/lib/avsdpll.lib 
+read_liberty -lib /home/john/Desktop/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/read_lib.png" 
+  <img src="https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/Week%203/Task%201/read_liberty.png" 
        alt="Simulation Block Diagram" width="600"/>
 </p>
 
@@ -77,34 +74,15 @@ read_liberty -lib /home/vivek/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.l
 synth -top vsdbabysoc
 ```
 <p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/synth.png" 
+  <img src="https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/Week%203/Task%201/synth -top.png" 
        alt="Simulation Block Diagram" width="600"/>
 </p>
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/clk_gate.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/rvmyth.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/soc.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/hierarchy.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/check_pass.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
+
 ---
 
 ### **Step 4: Map D Flip-Flops to Standard Cells**
 ```yosys
-dfflibmap -liberty /home/vivek/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+dfflibmap -liberty /home/john/Desktop/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 
 ---
@@ -112,12 +90,9 @@ dfflibmap -liberty /home/vivek/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.
 ### **Step 5: Perform Optimization and Technology Mapping**
 ```yosys
 opt
-abc -liberty /home/vivek/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/john/Desktop/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/abc.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
+
 
 ---
 
@@ -128,31 +103,24 @@ setundef -zero
 clean -purge
 rename -enumerate
 ```
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/flatten.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
+
 ---
 
 ### **Step 7: Check Statistics**
 ```yosys
 stat
 ```
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/stat1.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
-<p align="center">
-  <img src="https://github.com/vivek-kosigi/RTL2GDS_VSD/blob/main/Week_3/task_1/images/stat2.png" 
-       alt="Simulation Block Diagram" width="600"/>
-</p>
+
 ---
 
 ### **Step 8: Write the Synthesized Netlist**
 ```yosys
-write_verilog -noattr /home/vivek/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v
+write_verilog  /home/john/Desktop/VSDBabySoC/output/post_synth/vsdbabysoc.synth.v
 ```
-
+<p align="center">
+  <img src="https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/Week%203/Task%201/write_verilog.png" 
+       alt="Simulation Block Diagram" width="600"/>
+</p>
 ---
 
 ## POST_SYNTHESIS SIMULATION AND WAVEFORMS
@@ -161,7 +129,7 @@ write_verilog -noattr /home/vivek/VSDBabySoC/output/post_synth_sim/vsdbabysoc.sy
 ### **Step 1: Compile the Netlist woith testbench**
 Run the following `iverilog` command to compile:
 ```bash
-iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 -o ./output/post_synth_sim/post_synth_sim.out ./src/gls_model/primitives.v ./src/gls_model/sky130_fd_sc_hd.v ./output/post_synth_sim/vsdbabysoc.synth.v ./src/module/avsdpll.v ./src/module/avsddac.v ./src/module/testbench.v
+iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 -o ./output/post_synth/post_synth_sim.out ./src/gls_model/primitives.v ./src/gls_model/sky130_fd_sc_hd.v ./output/post_synth_sim/vsdbabysoc.synth.v ./src/module/avsdpll.v ./src/module/avsddac.v ./src/module/testbench.v
 ```
 ---
 ### **Step 2: Navigate to the Post-Synthesis Simulation Output Directory**
@@ -181,7 +149,7 @@ cd output/post_synth_sim/
 gtkwave dump.vcd
 ```
 <p align="center">
-  <img src="https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/Week%203/Task%201/read_verilog.png" 
+  <img src="https://github.com/munigalajohn/RTLtoGDS-tapeout-program/blob/main/Week%203/Task%201/iverilog_vsdbabysoc.png" 
        alt="Simulation Block Diagram" width="600"/>
 
 ---
